@@ -1,0 +1,321 @@
+﻿<Page x:Class="WeatherApp.SearchPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:WeatherApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Title="SearchPage">
+    <Grid>
+        <materialDesign:Card UniformCornerRadius="20">
+            <materialDesign:Card UniformCornerRadius="20" Margin="380,350,370,400" Background="White">
+                <StackPanel>
+                    <TextBox x:Name="searchText" materialDesign:HintAssist.Hint="Enter The City" Margin="55,0,20,10" Background="White" Style="{StaticResource MaterialDesignFilledTextBox}" Height="43" KeyDown="searchText_KeyDown"/>
+                    <ListView Margin="-190 -55 0 0" Width="40" Height="40" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                        <ListViewItem Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+    BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Click="GetWeather_Click" Width="40" Height="40">
+                                <StackPanel>
+                                    <materialDesign:PackIcon Kind="Search" Height="30" Width="30"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                    </ListView>
+                </StackPanel>
+            </materialDesign:Card>
+            <materialDesign:Card.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0868C7"/>
+                    <GradientStop Color="#FF85BDF6" Offset="0.986"/>
+                </LinearGradientBrush>
+            </materialDesign:Card.Background>
+        </materialDesign:Card>
+        <materialDesign:Card UniformCornerRadius="450" Height="400" Width="400" Opacity="0.08" Margin="-82,-32,682,432">
+            <materialDesign:Card.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFFFC306" Offset="0.733"/>
+                </RadialGradientBrush>
+            </materialDesign:Card.Background>
+            <materialDesign:Card.Resources>
+                <Style TargetType="materialDesign:Card">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="materialDesign:Card">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="450">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" To="370" Duration="0:0:0.4"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="370" Duration="0:0:0.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" To="400" Duration="0:0:0.4"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="400" Duration="0:0:0.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:Card.Resources>
+        </materialDesign:Card>
+        <materialDesign:Card UniformCornerRadius="450" Margin="-17,32,747,498" Height="270" Width="270" Opacity="0.2">
+            <materialDesign:Card.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFFFC306" Offset="0.733"/>
+                </RadialGradientBrush>
+            </materialDesign:Card.Background>
+            <materialDesign:Card.Resources>
+                <Style TargetType="materialDesign:Card">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="materialDesign:Card">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="450">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" To="240" Duration="0:0:0.4"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="240" Duration="0:0:0.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" To="270" Duration="0:0:0.4"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="270" Duration="0:0:0.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:Card.Resources>
+        </materialDesign:Card>
+        <materialDesign:Card UniformCornerRadius="450" Margin="43,92,807,558" Height="150" Width="150" Opacity="0.4">
+            <materialDesign:Card.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFFFC306" Offset="0.653"/>
+                </RadialGradientBrush>
+            </materialDesign:Card.Background>
+            <materialDesign:Card.Resources>
+                <Style TargetType="materialDesign:Card">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="materialDesign:Card">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="450">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" To="130" Duration="0:0:0.4"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="130" Duration="0:0:0.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" To="150" Duration="0:0:0.4"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:Card.Resources>
+        </materialDesign:Card>
+        <materialDesign:Card UniformCornerRadius="450" Margin="78,127,842,593" Height="80" Width="80" Background="#FFFFC406" Opacity="1">
+            <materialDesign:Card.Resources>
+                <Style TargetType="materialDesign:Card">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="materialDesign:Card">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="450">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" To="60" Duration="0:0:0.4"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="60" Duration="0:0:0.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" To="80" Duration="0:0:0.4"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="80" Duration="0:0:0.4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:Card.Resources>
+        </materialDesign:Card>
+        <ListView Margin="10,10,940,740" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListViewItem Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+            BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Click="Back_Click">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="ArrowBack" Height="30" Width="30"/>
+                    </StackPanel>
+                </Button>
+            </ListViewItem>
+        </ListView>
+        <ListView Margin="940,10,10,740" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListViewItem Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+    BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Click="MoreInformation_Click">
+                    <StackPanel>
+                        <materialDesign:PackIcon x:Name="arrowMoreInf" Kind="MenuLeft" Height="30" Width="30"/>
+                    </StackPanel>
+                </Button>
+            </ListViewItem>
+        </ListView>
+        <materialDesign:Card x:Name="moreInf" Margin="1000,60, -210,430" UniformCornerRadius="15" Width="200" Height="300">
+            <StackPanel Margin="10 10 10 0">
+                <TextBlock x:Name="cityMoreinf" Text="Tele-Mele-Tryamdia" Margin="0 0 0 0" FontWeight="Bold" FontSize="19" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="tempMoreinf" Text="Temperature   66°" Margin="0 10 0 0" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="felMoreinf" Text="Feels like   666°" Margin="0 15 0 0" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="humMoreinf" Text="Humidity   -110%" Margin="0 15 0 0" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="preMoreinf" Text="Pressure   2000 hPa" Margin="0 15 0 0" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="windMoreinf" Text="Wind" Margin="0 20 0 0" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="speMoreinf" Text="Speed   100 m/c" Margin="0 10 0 0" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="degMoreinf" Text="Degrees   90°" Margin="0 15 0 0" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </materialDesign:Card>
+        <Border BorderThickness="5" Margin="10,420,10,10" CornerRadius="15">
+            <materialDesign:Card Background="#f1f3f5" materialDesign:ShadowAssist.ShadowDepth="Depth4" UniformCornerRadius="15" BorderThickness="5" BorderBrush="White">
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <Button Content="Today" Background="White" Foreground="#FF2C80C0" FontSize="15" FontWeight="Bold" Margin="210 5 0 0" Height="40" Width="100" VerticalAlignment="Top" Click="Day1_Click"/>
+                    <Button Content="Sunday" Background="White" Foreground="#FF2C80C0" FontSize="15" FontWeight="Bold" Margin="10 5 0 0" Height="40" Width="100" VerticalAlignment="Top" Click="Day2_Click"/>
+                    <Button Content="Monday" Background="White" Foreground="#FF2C80C0" FontSize="15" FontWeight="Bold" Margin="10 5 0 0" Height="40" Width="100" VerticalAlignment="Top" Click="Day3_Click"/>
+                    <Button Content="Tuesday" Background="White" Foreground="#FF2C80C0" FontSize="15" FontWeight="Bold" Margin="10 5 0 0" Height="40" Width="100" VerticalAlignment="Top" Click="Day4_Click"/>
+                    <Button Content="Wednesday" Background="White" Foreground="#FF2C80C0" FontSize="15" FontWeight="Bold" Margin="10 5 0 0" Height="40" Width="100" VerticalAlignment="Top" Click="Day5_Click"/>
+                </StackPanel>
+            </materialDesign:Card>
+        </Border>
+        <WrapPanel Margin="35,505,35,35">
+            <Grid Width="930" Height="260">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="time1" Text="06:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="0" Grid.Row="0"/>
+                <TextBlock x:Name="time2" Text="12:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.Row="0"/>
+                <TextBlock x:Name="time3" Text="15:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="2" Grid.Row="0"/>
+                <TextBlock x:Name="time4" Text="18:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="3" Grid.Row="0"/>
+                <TextBlock x:Name="time5" Text="21:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="4" Grid.Row="0"/>
+                <TextBlock x:Name="time6" Text="00:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="5" Grid.Row="0"/>
+                <TextBlock x:Name="time7" Text="3:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="6" Grid.Row="0"/>
+                <Image x:Name="day1" Source="Resources/01d.png" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
+                <Image x:Name="day2" Source="Resources/02d.png" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                <Image x:Name="day3" Source="Resources/03d.png" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1"/>
+                <Image x:Name="day4" Source="Resources/04d.png" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1"/>
+                <Image x:Name="day5" Source="Resources/09d.png" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1"/>
+                <Image x:Name="day6" Source="Resources/10d.png" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1"/>
+                <Image x:Name="day7" Source="Resources/11d.png" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="1"/>
+                <TextBlock x:Name="temp1" Text="12°" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="0" Grid.Row="2"/>
+                <TextBlock x:Name="temp2" Text="8°" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.Row="2"/>
+                <TextBlock x:Name="temp3" Text="3°" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="2" Grid.Row="2"/>
+                <TextBlock x:Name="temp4" Text="0°" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="3" Grid.Row="2"/>
+                <TextBlock x:Name="temp5" Text="5°" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="4" Grid.Row="2"/>
+                <TextBlock x:Name="temp6" Text="9°" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="5" Grid.Row="2"/>
+                <TextBlock x:Name="temp7" Text="6°" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="6" Grid.Row="2"/>
+                <TextBlock x:Name="hum1" Text="-110%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="0" Grid.Row="3"/>
+                <TextBlock x:Name="hum2" Text="-112%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.Row="3"/>
+                <TextBlock x:Name="hum3" Text="-87%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="2" Grid.Row="3"/>
+                <TextBlock x:Name="hum4" Text="-115%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="3" Grid.Row="3"/>
+                <TextBlock x:Name="hum5" Text="-120%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="4" Grid.Row="3"/>
+                <TextBlock x:Name="hum6" Text="-90%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="5" Grid.Row="3"/>
+                <TextBlock x:Name="hum7" Text="-100%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="6" Grid.Row="3"/>
+            </Grid>
+        </WrapPanel>
+        <Label x:Name="temperature" Content="66°" FontSize="75" Foreground="White" Margin="394,140,410,551"/>
+        <Label x:Name="feelsTemp" Content="feels like 666°" FontSize="25" Foreground="White" Margin="380,234,424,513"/>
+        <Label x:Name="city" Content="Tele-Mele-Tryamdia" FontSize="35" Foreground="White" Margin="357,91,324,656"/>
+    </Grid>
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="3" CornerRadius="3" BorderBrush="#FF99CAF0">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width" To="120" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Height" To="50" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width" To="100" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Height" To="40" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+</Page>
